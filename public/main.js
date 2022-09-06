@@ -3,14 +3,14 @@ const addTodoForm = document.querySelector(".add-todo-form");
 const todoInput = document.getElementById('todo-input')
 const descriptionInput = document.getElementById('description-input')
 let output = "";
-const displayPosts = (posts) => {
+const displayTodos = (posts) => {
   posts.forEach((todo) => {
     output += `<div class="card mt-4 col-md-6 bg-light" >
     <div class="card-body">
       <h5 class="card-title">${todo.task}</h5>
 
       <p class="card-text">${todo.description}</p>
-      <a href="#" class="card-link">Edit</a>
+      <a href="se#" class="card-link">Edit</a>
       <a href="#" class="card-link">Delete</a>
     </div>
    </div>`;
@@ -23,25 +23,37 @@ const url = "http://localhost:9000/todo";
 fetch(url)
   .then((res) => res.json())
   .then((data) => {
-    displayPosts(data);
+    displayTodos(data);
     console.log(data);
   });
 
 //Create new post with POST Method
 
-addTodoForm.addEventListener("submit", (e) => {
+addTodoForm.addEventListener("submit", async(e) => {
   e.preventDefault();
   
  
-  fetch(url, {
+  await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       task: todoInput.value,
-      descriptio: descriptionInput.value
+      description: descriptionInput.value
       
     })
-  });
+  })
+    .then(res => res.json())
+    .then(data =>  {
+      inputArr = []
+      inputArr.push(data)
+      displayTodos(inputArr)
+
+      
+      
+      
+    })
+      
+ 
 });
