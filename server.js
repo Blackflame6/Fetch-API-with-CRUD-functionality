@@ -1,11 +1,12 @@
 const pool = require("./db/connection");
 const express = require("express");
+const cors = require('cors')
 const app = express();
 const controller = require("./db/controller");
 const PORT = process.env.PORT || 9000;
 
 app.use(express.json());
-
+app.use(cors())
 app.use(express.static("public"));
 
 app.get("/todo", controller.getAllTodos);
