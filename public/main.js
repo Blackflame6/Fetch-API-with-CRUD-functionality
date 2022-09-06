@@ -1,27 +1,47 @@
+const todoLists = document.querySelector(".todo-lists");
+const addTodoForm = document.querySelector(".add-todo-form");
+const todoInput = document.getElementById('todo-input')
+const descriptionInput = document.getElementById('description-input')
+let output = "";
+const displayPosts = (posts) => {
+  posts.forEach((todo) => {
+    output += `<div class="card mt-4 col-md-6 bg-light" >
+    <div class="card-body">
+      <h5 class="card-title">${todo.task}</h5>
 
-const todoLists = document.querySelector('.todo-lists')
-const url = 'http://localhost:9000/todo';
-let output = ""
-
+      <p class="card-text">${todo.description}</p>
+      <a href="#" class="card-link">Edit</a>
+      <a href="#" class="card-link">Delete</a>
+    </div>
+   </div>`;
+  });
+  todoLists.innerHTML = output;
+};
+const url = "http://localhost:9000/todo";
 //Get Request to read the post
 
- fetch(url)
- .then(res=> res.json())
- .then(data => {
-  data.forEach(todo => {
-   output += `<div class="card mt-4 col-md-6 bg-light" >
-   <div class="card-body">
-     <h5 class="card-title">${todo.task}</h5>
-     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-     <a href="#" class="card-link">Edit</a>
-     <a href="#" class="card-link">Delete</a>
-   </div>
-  </div>` ;
+fetch(url)
+  .then((res) => res.json())
+  .then((data) => {
+    displayPosts(data);
+    console.log(data);
   });
-  todoLists.innerHTML = output
- })
 
+//Create new post with POST Method
 
-
-
+addTodoForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  
+ 
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      task: todoInput.value,
+      descriptio: descriptionInput.value
+      
+    })
+  });
+});
