@@ -4,6 +4,8 @@ const todoInput = document.getElementById("todo-input");
 const descriptionInput = document.getElementById("description-input");
 const updateButton = document.querySelector(".btn");
 let output = "";
+
+
 const displayTodos = (posts) => {
   posts.forEach((todo) => {
     output += `<div class="card mt-4 col-md-6 bg-light" >
@@ -35,7 +37,8 @@ todoLists.addEventListener("click", (e) => {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then(() => location.reload());
+
+      .then(location.reload(true));
   }
 
   if (editButtonPressed) {
@@ -47,7 +50,7 @@ todoLists.addEventListener("click", (e) => {
     descriptionInput.value = bodyContent;
   }
   updateButton.addEventListener("click", (e) => {
-    e.preventDefault()
+    e.preventDefault();
     fetch(`${url}/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -57,7 +60,7 @@ todoLists.addEventListener("click", (e) => {
       }),
     })
       .then((res) => res.json())
-      .then(() => location.reload);
+      .then(location.reload(true));
   });
 });
 
@@ -88,6 +91,6 @@ addTodoForm.addEventListener("submit", async (e) => {
       inputArr = [];
       inputArr.push(data);
       displayTodos(inputArr);
-    });
-    
+    })
+    .then(location.reload(true));
 });

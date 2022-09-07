@@ -1,0 +1,70 @@
+:root {
+  --light:#eee;
+  --dark:#333;
+  --purple:#eee;
+  --grey:#ccc;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Handlee', cursive;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+
+
+  min-height: 100vh;
+  text-align: center;
+ background-color:var(--light);
+}
+#ver {
+  display:inline-flex;
+  justify-content:space-between
+  
+ 
+}
+.todo-lists {
+  display: flex;
+  flex-direction: column;
+
+align-items: center;
+  
+}
+
+.form-group {
+ padding:  3rem 2rem ;
+
+}
+
+.my-btn {
+ height: 3rem;
+ width: 6rem;
+ margin-top: 6.1rem;
+ border-radius: 4rem;
+ background-color:var(--light);
+ border: 1px solid black;
+ color:var(--dark)
+
+}
+
+.darkbg {
+
+  height: 3rem;
+  width: 20rem;
+  border-radius: 1.5rem ;
+  margin-top: 1rem;
+  border: 0.75px solid black;
+}
+.darkbg::placeholder {
+  text-align: center;
+}
+label{
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+h3 {
+  font-weight: 200;
+}
