@@ -8,7 +8,7 @@ const getAllTodos = async (req, res) => {
 
     res.status(200).send(rows);
   } catch (error) {
-    console.log(error);
+    res.send(error.message);
     // res.send(console.error(error.message))
   }
 };
@@ -20,7 +20,7 @@ const getOneTodo = async (req, res) => {
     const { rows } = await pool.query(queries.getOneTodo, [id]);
     res.status(200).send(rows);
   } catch (error) {
-    console.log(error);
+    res.send(error.message);
   }
 };
 
@@ -34,7 +34,7 @@ const createTodo = async (req, res) => {
     ]);
     res.status(200).send(req.body);
   } catch (error) {
-    console.log(error);
+    res.send(error.message);
   }
 };
 
@@ -52,7 +52,7 @@ const updateTodo = async (req, res) => {
       .status(200)
       .send(`item changed. Task: '${task}'.  Description: '${description}.'`);
   } catch (error) {
-    console.log(error);
+    res.send(error.message);
   }
 };
 
@@ -60,9 +60,9 @@ const removeTodo = async (req, res) => {
   const id = parseInt(req.params.id);
   try {
     const { rows } = await pool.query(queries.removeTodo, [id]);
-    res.status(200).send(`Todo with ID '${id}' removed.`);
+    res.status(200).send();
   } catch (error) {
-    console.log(error);
+    res.send(error.message);
   }
 };
 module.exports = {
