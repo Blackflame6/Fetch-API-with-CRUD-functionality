@@ -1,28 +1,38 @@
 :root {
   --light:#eee;
-  --dark:#333;
-  --purple:#eee;
-  --grey:#ccc;
+  --dark:#aaa;
+  --darker:#222;
+
+  --blue:rgb(2, 76, 196);
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Handlee', cursive;
+font-family: 'Raleway', sans-serif;
 }
 
 
 body {
   display: flex;
   flex-direction: column;
+  color: var(--darker);
 
 
   min-height: 100vh;
   text-align: center;
  background-color:var(--light);
 }
-#ver {
-  display:inline-flex;
-  justify-content:space-between
+.darkmode {
+  background-color:#333;
+
+}
+.lighter {
+ color: var(--light);
+}
+#form {
+  display: inline-flex;
+  justify-content: space-evenly;
+ 
   
  
 }
@@ -41,14 +51,27 @@ align-items: center;
 
 .my-btn {
  height: 3rem;
- width: 6rem;
- margin-top: 6.1rem;
+ width: 7rem;
+ margin-top: 6.3rem;
  border-radius: 4rem;
  background-color:var(--light);
- border: 1px solid black;
- color:var(--dark)
+ border: 0.5px solid black;
+ color:var(--darker)
 
 }
+.my-btn-dark {
+  height: 3rem;
+  width: 7rem;
+  margin-top: 6.3rem;
+  border-radius: 4rem;
+  background-color:var(--light);
+  border: 0.5px solid black;
+  color:var(--darker);
+  padding-left: 1rem;
+  cursor: pointer;
+  outline: none;
+}
+
 
 .darkbg {
 
@@ -56,15 +79,65 @@ align-items: center;
   width: 20rem;
   border-radius: 1.5rem ;
   margin-top: 1rem;
-  border: 0.75px solid black;
+  border: 0.5px solid black;
+  padding-left: 2rem;
+  margin-right: 0;
+
 }
 .darkbg::placeholder {
   text-align: center;
 }
 label{
   font-size: 1.5rem;
-  font-weight: 300;
+  font-weight: 200;
 }
 h3 {
   font-weight: 200;
+  margin-top: 1rem;
+}
+
+.card {
+  text-align: center;
+  border-radius: 2rem;
+  transition: 0.2s;
+  border: 0.5px solid black;
+
+  overflow: hidden;
+
+
+  
+}
+.card:hover {
+  transform: scale(1.1);
+
+}
+.card-body {
+  text-align: center;
+  border-radius: 2rem;
+  transition: 0.2s;
+ background-color:#ddd;
+
+  overflow: hidden;
+
+}
+.card-body:hover {
+  background-color: rgba(85, 153, 231, 0.168);
+
+}
+
+a {
+  
+  text-decoration: none;
+ 
+  color:var(--blue) ;
+ 
+}
+
+
+i{
+  color: var(--dark);
+}
+
+.card-title {
+  font-weight: 600;
 }
