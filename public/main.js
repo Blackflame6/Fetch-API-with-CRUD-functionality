@@ -66,8 +66,13 @@ todoLists.addEventListener("click", async (e) => {
 
 //UPDATE REQUEST TO EDIT POST WITH PATCH
 todoLists.addEventListener("click", (e) => {
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> 55ae9ad0b79747f39375873da49af2544be6969c
   // id of the  parent element because it is  the only element with an id
   
   let editButtonPressed = (e.target.id === "edit-post");
@@ -136,4 +141,9 @@ darkMode.addEventListener("click", () => {
   document.querySelector("h3").classList.toggle("lighter");
   document.querySelector("label").classList.toggle("lighter");
   document.querySelector(".desc").classList.toggle("lighter");
+<<<<<<< HEAD
 });
+=======
+});
+
+>>>>>>> 55ae9ad0b79747f39375873da49af2544be6969c
