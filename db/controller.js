@@ -7,9 +7,9 @@ const getAllTodos = async (req, res) => {
     const { rows } = await pool.query(queries.getAllTodos);
 
     res.status(200).send(rows);
-  } catch (error) {
-    res.send(error.message);
-    // res.send(console.error(error.message))
+  } catch (err) {
+    console.error(err.message);
+
   }
 };
 
